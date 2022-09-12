@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [Header("Managers")]
     [SerializeField] private EnemyManager enemyManager;
     [SerializeField] private HighscoreTable highscoreTable;
+    [SerializeField] private Timer timer;
 
     [Header("Player")]
     private string playerName;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         countdownText.text = "GO !";
         gameOn = true;
         enemyManager.GameStart();
+        timer.BeginTimer();
         yield return new WaitForSeconds(1);
         
         countdownText.gameObject.SetActive(false);       
